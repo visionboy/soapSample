@@ -1,0 +1,70 @@
+### SOAP Web Service Test - hihiService
+
+# 1. WSDL 확인 (브라우저에서도 가능)
+GET http://localhost:8080/services/VideoService?wsdl
+
+###
+
+# 2. getVideos SOAP 요청 (전체 비디오 조회)
+POST http://localhost:8080/services/VideoService
+Content-Type: text/xml; charset=utf-8
+SOAPAction: ""
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+                  xmlns:hihi="http://hihi.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <hihi:getVideos/>
+   </soapenv:Body>
+</soapenv:Envelope>
+
+###
+
+# 3. getVideosById SOAP 요청 (특정 ID의 비디오 조회)
+POST http://localhost:8080/services/VideoService
+Content-Type: text/xml; charset=utf-8
+SOAPAction: ""
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+                  xmlns:hihi="http://hihi.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <hihi:getVideosById>
+         <id>1</id>
+      </hihi:getVideosById>
+   </soapenv:Body>
+</soapenv:Envelope>
+
+###
+
+# 4. getVideosById SOAP 요청 (다른 ID 예제)
+POST http://localhost:8080/services/VideoService
+Content-Type: text/xml; charset=utf-8
+SOAPAction: ""
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+                  xmlns:hihi="http://hihi.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <hihi:getVideosById>
+         <id>2</id>
+      </hihi:getVideosById>
+   </soapenv:Body>
+</soapenv:Envelope>
+
+###
+
+# 5. getSortInfo SOAP 요청 (id, user_id, engine, source_image를 List<List<String>>으로 조회)
+POST http://localhost:8080/services/VideoService
+Content-Type: text/xml; charset=utf-8
+SOAPAction: ""
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+                  xmlns:hihi="http://hihi.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <hihi:getSortInfo/>
+   </soapenv:Body>
+</soapenv:Envelope>
+
+###

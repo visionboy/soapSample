@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://service.soap.example.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="VideoServiceImplService" targetNamespace="http://service.soap.example.com/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://service.soap.example.com/" elementFormDefault="unqualified" targetNamespace="http://service.soap.example.com/" version="1.0">
+
+  <xs:element name="getVideos" type="tns:getVideos"/>
+
+  <xs:element name="getVideosById" type="tns:getVideosById"/>
+
+  <xs:element name="getVideosByIdResponse" type="tns:getVideosByIdResponse"/>
+
+  <xs:element name="getVideosResponse" type="tns:getVideosResponse"/>
+
+  <xs:complexType name="getVideos">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getVideosResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:videoDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="videoDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="engine" type="xs:string"/>
+      <xs:element minOccurs="0" name="id" type="xs:long"/>
+      <xs:element minOccurs="0" name="prompt" type="xs:string"/>
+      <xs:element minOccurs="0" name="sourceImage" type="xs:string"/>
+      <xs:element minOccurs="0" name="userId" type="xs:string"/>
+      <xs:element minOccurs="0" name="videoUrl" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getVideosById">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getVideosByIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:videoDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getVideosByIdResponse">
+    <wsdl:part element="tns:getVideosByIdResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getVideosResponse">
+    <wsdl:part element="tns:getVideosResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getVideos">
+    <wsdl:part element="tns:getVideos" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getVideosById">
+    <wsdl:part element="tns:getVideosById" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="VideoService">
+    <wsdl:operation name="getVideos">
+      <wsdl:input message="tns:getVideos" name="getVideos">
+    </wsdl:input>
+      <wsdl:output message="tns:getVideosResponse" name="getVideosResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVideosById">
+      <wsdl:input message="tns:getVideosById" name="getVideosById">
+    </wsdl:input>
+      <wsdl:output message="tns:getVideosByIdResponse" name="getVideosByIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="VideoServiceImplServiceSoapBinding" type="tns:VideoService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getVideos">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getVideos">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getVideosResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVideosById">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getVideosById">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getVideosByIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="VideoServiceImplService">
+    <wsdl:port binding="tns:VideoServiceImplServiceSoapBinding" name="VideoServiceImplPort">
+      <soap:address location="http://localhost:8080/services/VideoService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
