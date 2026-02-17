@@ -47,14 +47,50 @@ SOAPAction: ""
    <soapenv:Header/>
    <soapenv:Body>
       <hihi:getVideosById>
-         <id>2</id>
+         <id>3</id>
       </hihi:getVideosById>
    </soapenv:Body>
 </soapenv:Envelope>
 
 ###
 
-# 5. getSortInfo SOAP 요청 (id, user_id, engine, source_image를 List<List<String>>으로 조회)
+# 5. getVideosByIdUid SOAP 요청 (id와 user_id로 비디오 조회)
+POST http://localhost:8080/services/VideoService
+Content-Type: text/xml; charset=utf-8
+SOAPAction: ""
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+                  xmlns:hihi="http://hihi.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <hihi:getVideosByIdUid>
+         <id>3</id>
+         <userId>5</userId>
+      </hihi:getVideosByIdUid>
+   </soapenv:Body>
+</soapenv:Envelope>
+
+###
+
+# 6. getVideosByIdUid SOAP 요청 (다른 예제)
+POST http://localhost:8080/services/VideoService
+Content-Type: text/xml; charset=utf-8
+SOAPAction: ""
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+                  xmlns:hihi="http://hihi.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <hihi:getVideosByIdUid>
+         <id>51</id>
+         <userId>5</userId>
+      </hihi:getVideosByIdUid>
+   </soapenv:Body>
+</soapenv:Envelope>
+
+###
+
+# 7. getSortInfo SOAP 요청 (id, user_id, engine, source_image를 List<List<String>>으로 조회)
 POST http://localhost:8080/services/VideoService
 Content-Type: text/xml; charset=utf-8
 SOAPAction: ""

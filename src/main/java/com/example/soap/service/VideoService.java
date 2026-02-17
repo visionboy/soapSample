@@ -20,5 +20,8 @@ public interface VideoService {
     VideoDTO getVideosById(@WebParam(name = "id") Long id);
 
     @WebMethod
+    VideoDTO getVideosByIdUid(@WebParam(name = "id") Long id, @WebParam(name = "userId") String userId);
+
+    @WebMethod
     List<SortInfoDTO> getSortInfo();
 }

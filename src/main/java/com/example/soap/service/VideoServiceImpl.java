@@ -54,6 +54,20 @@ public class VideoServiceImpl implements VideoService {
     }
 
     @Override
+    public VideoDTO getVideosByIdUid(Long id, String userId) {
+        return videoRepository.findByIdAndUserId(id, userId)
+                .map(video -> new VideoDTO(
+                        video.getId(),
+                        video.getUserId(),
+                        video.getEngine(),
+                        video.getSourceImage(),
+                        video.getPrompt(),
+                        video.getVideoUrl()
+                ))
+                .orElse(null);
+    }
+
+    @Override
     public List<SortInfoDTO> getSortInfo() {
         List<Video> videos = videoRepository.findAll();
         
