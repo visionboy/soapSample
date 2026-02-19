@@ -4,13 +4,20 @@ Content-Type: application/xml
 Accept: application/json
 
 <User>
-    <id>1</id>
-    <name>John Doe</name>
-    <email>john@example.com</email>
-    <roles>
-        <role>ADMIN</role>
-        <role>USER</role>
-    </roles>
+    <id>2</id>
+    <name>Jane Smith</name>
+    <email>jane@example.com</email>
+</User>
+
+### XML to JSON Conversion Test (Pretty Print)
+POST http://localhost:8080/convert2
+Content-Type: application/xml
+Accept: application/json
+
+<User>
+    <id>2</id>
+    <name>Jane Smith</name>
+    <email>jane@example.com</email>
 </User>
 
 ### Video to JSON result example

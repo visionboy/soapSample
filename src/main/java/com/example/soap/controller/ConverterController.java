@@ -28,4 +28,15 @@ public class ConverterController {
             return "Error during conversion: " + e.getMessage();
         }
     }
+
+    @PostMapping(value = "/convert2", consumes = "application/xml", produces = "application/json")
+    public String convert2(@RequestBody String xmlInput) throws Exception {
+        XmlMapper xmlMapper = new XmlMapper();
+        // 1. XML을 트리 구조로 읽기
+        JsonNode node = xmlMapper.readTree(xmlInput);
+
+        ObjectMapper jsonMapper = new ObjectMapper();
+        // 2. JSON도 들여쓰기(Pretty Print) 적용하여 String으로 반환
+        return jsonMapper.writerWithDefaultPrettyPrinter().writeValueAsString(node);
+    }
 }
