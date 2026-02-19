@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <item>
+        <name>홍길동</name>
+        <age>25</age>
+        <score>95</score>
+    </item>
+    <item>
+        <name>이순신</name>
+        <age>17</age>
+        <score>82</score>
+    </item>
+    <item>
+        <name>강감찬</name>
+        <age>30</age>
+        <score>70</score>
+    </item>
+</root>

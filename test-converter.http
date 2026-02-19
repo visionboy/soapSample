@@ -13,6 +13,24 @@ Accept: application/json
     </roles>
 </User>
 
+### Video to JSON result example
+# (Previous result can be added here for reference)
+
+### XSLT Transformation - Predefined (data.xml + style.xsl)
+GET http://localhost:8080/transform/test
+
+### XSLT Transformation - Dynamic XML (Using predefined style.xsl)
+POST http://localhost:8080/transform
+Content-Type: application/xml
+
+<root>
+    <item>
+        <name>테스터</name>
+        <age>20</age>
+        <score>100</score>
+    </item>
+</root>
+
 ### Test with Video Data structure
 POST http://localhost:8080/convert
 Content-Type: application/xml
