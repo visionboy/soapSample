@@ -1,0 +1,48 @@
+### XML to JSON Conversion Test
+POST http://localhost:8080/convert
+Content-Type: application/xml
+Accept: application/json
+
+<User>
+    <id>1</id>
+    <name>John Doe</name>
+    <email>john@example.com</email>
+    <roles>
+        <role>ADMIN</role>
+        <role>USER</role>
+    </roles>
+</User>
+
+### Test with Video Data structure
+POST http://localhost:8080/convert
+Content-Type: application/xml
+Accept: application/json
+
+<Company>
+    <Name>Google</Name>
+    <Location country="USA">Mountain View</Location>
+    <Departments>
+        <Dept>
+            <Dname>Engineering</Dname>
+            <Employees>
+                <Emp id="101">
+                    <Name>Kim</Name>
+                    <Role>Developer</Role>
+                </Emp>
+                <Emp id="102">
+                    <Name>Lee</Name>
+                    <Role>Designer</Role>
+                </Emp>
+            </Employees>
+        </Dept>
+        <Dept>
+            <Dname>Marketing</Dname>
+            <Employees>
+                <Emp id="201">
+                    <Name>Park</Name>
+                    <Role>Manager</Role>
+                </Emp>
+            </Employees>
+        </Dept>
+    </Departments>
+</Company>
